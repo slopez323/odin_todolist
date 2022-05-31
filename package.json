@@ -1,0 +1,19 @@
+{
+  "name": "odin_todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slopez323/odin_todolist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slopez323/odin_todolist/issues"
+  },
+  "homepage": "https://github.com/slopez323/odin_todolist#readme"
+}
