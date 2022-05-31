@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarina&family=Bebas+Neue&family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+:root{
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.popup-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #eaeaea49;
+}
+
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eaeaea;
+    width: 30rem;
+    max-width: 80vw;
+    height: max-content;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 2rem;
+    overflow-y: auto;
+
+    display: grid;
+    gap: .8rem;
+}
+
+.popup label{
+    font-family: 'Bebas Neue', cursive;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.popup textarea{
+    resize: none;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+header{
+    grid-column: 1/3;
+    padding: 1.2rem 1rem;
+    background-color: #a26769;
+    color: #ece2d0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1{
+    margin: 0;
+    font-family: 'Sarina', cursive;
+}
+
+.today{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+}
+
+.sidebar{
+    padding: 1rem .8rem;
+    background-color: #ece2d0;
+    color: #202c39;
+}
+
+h3{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.5rem;
+}
+
+.sidebar ul{
+    margin: .5rem 0;
+    padding: 0 0 0 .5rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.sidebar li{
+    list-style: none;
+    color: #4f6d7a;
+    margin: .5rem 0;
+    font-size: 1.1rem;
+}
+
+footer{
+    grid-column: 1/3;
+    background-color: #cebebe;
+    padding: .8rem;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    color: #283845;
+}
