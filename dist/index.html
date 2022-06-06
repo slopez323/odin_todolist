@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/b1efd90343.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>to do list</h1>
+            <span class="today"></span>
+        </header>
+
+        <nav class="sidebar">
+            <button class="newTask">New Task</button>
+            <div>
+                <h3 class="nav-all">Tasks
+                </h3>
+                <ul>
+                    <li class="current-view" id="view-all"><span>All</span></li>
+                    <li id="view-comp"><span>Completed</span></li>
+                    <li id="view-open"><span>Open</span></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="nav-proj">Projects
+                    <i class="fa fa-solid fa-circle-plus addProject"></i>
+                </h3>
+                <ul>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <div class="list">
+                <select name="sort" id="sort">
+                    <option value="default">Due Date</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+                <select name="filter" id="filter">
+                    <option value="default">Priority</option>
+                    <option value="filterhigh">High</option>
+                    <option value="filtermed">Medium</option>
+                    <option value="filterlow">Low</option>
+                </select>
+                <ul>
+                </ul>
+            </div>
+            <div class="no-tasks">
+                <div>No Tasks.</div>
+                <button class="newTask">+ New Task</button>
+            </div>
+        </main>
+
+        <footer>
+            Copyright
+        </footer>
+    </div>
+
+    <div class="popup-container">
+        <div class="popup">
+            <label for="project">Project
+                <select name="project" id="project">
+                    <option value="newProject">+ Add New Project</option>
+                </select>
+                <input type="text" id="newProjInput" autocomplete="off">
+            </label>
+            <label for="title">Title<input type="text" id="title" autocomplete="off"></label>
+            <label for="desc">Description<input type="text" id="desc" autocomplete="off"></label>
+            <label for="due">Due Date<input type="date" id="due"></label>
+            <label for="prio">Priority
+                <select name="prio" id="prio">
+                    <option value="high">High</option>
+                    <option value="med">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </label>
+            <label for="notes">Notes<textarea name="notes" id="notes" cols="30" rows="10"></textarea></label>
+            <button>Create</button>
+            <button id="edit">Submit Changes</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
