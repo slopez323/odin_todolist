@@ -1,25 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Sarina&family=Bebas+Neue&family=Yanone+Kaffeesatz:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarina&family=Bebas+Neue&family=Yanone+Kaffeesatz:wght@200;500&display=swap');
 
-:root{
+:root {
     font-size: 16px;
 }
 
-body{
+body {
     margin: 0;
     height: 100vh;
     width: 100vw;
 }
 
-.popup-container{
+.popup-container {
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background-color: #eaeaea49;
+
+    display: none;
 }
 
-.popup{
+.popup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,25 +33,110 @@ body{
     max-height: 80vh;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding: 2rem;
+    padding: 1.5rem 2.5rem;
     overflow-y: auto;
+    color: #39739d;
 
     display: grid;
     gap: .8rem;
 }
 
-.popup label{
+.popup label {
     font-family: 'Bebas Neue', cursive;
 
     display: flex;
     flex-direction: column;
 }
 
-.popup textarea{
+#project {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.popup label[for="project"].showField {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+input,
+select,
+textarea{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    outline: none;
+    border: none;
+    padding: .25rem;
+}
+
+#newProjInput {
+    display: none;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#newProjInput.showField {
+    display: block;
+}
+
+#newProjInput.missing,
+#title.missing {
+    border: 1px solid #800e14c7;
+}
+
+.popup textarea {
     resize: none;
 }
 
-.container{
+.popup button {
+    justify-self: center;
+
+    background: #6d2e46;
+    border: 1px solid #6d2e46;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+.popup button:hover,
+.popup button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #6d2e46;
+}
+
+.popup button:active {
+    opacity: .5;
+}
+
+#edit{
+    display: none;
+    background-color:#00798c;
+    border-color: #00798c;
+}
+
+#edit:hover,
+#edit:active {
+    color: #00798c;
+    background-color: #eaeaea;
+}
+
+.container {
     height: 100%;
     width: 100%;
 
@@ -58,7 +145,7 @@ body{
     grid-template-rows: auto 1fr auto;
 }
 
-header{
+header {
     grid-column: 1/3;
     padding: 1.2rem 1rem;
     background-color: #a26769;
@@ -69,45 +156,272 @@ header{
     align-items: center;
 }
 
-h1{
+h1 {
     margin: 0;
     font-family: 'Sarina', cursive;
 }
 
-.today{
+.today {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
 }
 
-.sidebar{
+.sidebar {
+    grid-row: 2;
     padding: 1rem .8rem;
     background-color: #ece2d0;
     color: #202c39;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-h3{
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+h3 {
     font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.sidebar ul{
-    margin: .5rem 0;
-    padding: 0 0 0 .5rem;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+.sidebar ul {
+    margin: 0;
+    padding: 0;
 }
 
-.sidebar li{
+.nav-proj+ul {
+    flex: 1;
+}
+
+.sidebar li {
     list-style: none;
     color: #4f6d7a;
-    margin: .5rem 0;
+    padding: .25rem .5rem;
     font-size: 1.1rem;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
 }
 
-footer{
+.sidebar input {
+    width: 90%;
+}
+
+.sidebar span{
+    overflow: auto;
+}
+
+.sidebar i{
+    color: #c0c0c0;
+    font-size: .8em;
+    align-self: start;
+}
+
+i.fa-circle-plus{
+    color: #202c39;
+}
+
+main {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 1rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+main select{
+    border: none;
+    outline: none;
+    font-size: .8rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #959393;
+    padding-bottom: .2rem;
+    margin: 0 .8rem .8rem 0;
+    border-bottom:1px solid #c0c0c0;
+}
+
+main ul {
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    gap: 5px;
+}
+
+main li {
+    list-style: none;
+    padding: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    border-radius: 3px;
+}
+
+.list-title {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+}
+
+.list-title i{
+    font-size: 1rem;
+    margin: 0 5px;
+    align-self: start;
+}
+
+.list-title i:last-child{
+    color:#c0c0c0;
+    font-size: .8rem;
+    align-self: center;
+}
+
+.completed{
+    color: #036666;
+}
+
+main li.high {
+    border-left: 3px solid #c81d25;
+}
+
+main li.med {
+    border-left: 3px solid #edae49;
+}
+
+main li.low {
+    border-left: 3px solid #00798c;
+}
+
+.list-due {
+    font-size: .9rem;
+    margin-right: 5px;
+}
+
+.list-due.high {
+    color: #c81d25;
+}
+
+.list-due.med {
+    color: #edae49;
+}
+
+.list-due.low {
+    color: #00798c;
+}
+
+.no-tasks {
+    display: none;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.newTask {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.sidebar .newTask {
+    font-size: .7rem;
+    letter-spacing: 1px;
+    padding: 0.25rem 2rem;
+    max-width: 155px;
+}
+
+.newTask:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+.done {
+    color: #036666;
+}
+
+li.current-view {
+    background-color: #c2dfe3;
+}
+
+.details {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 200;
+    font-size: .7em;
+    color:#036666;
+    text-transform: uppercase;
+}
+
+.details p {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+}
+
+.detail-text {
+    font-weight: 500;
+    color: #202c39;
+    font-size: 1.2em;
+    text-transform: none;
+}
+
+p.detail-actions {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    font-size: 1em;
+    text-decoration: underline;
+    color: #4f6d7a;
+}
+
+footer {
     grid-column: 1/3;
     background-color: #cebebe;
     padding: .8rem;
     text-align: center;
     font-family: 'Bebas Neue', cursive;
     color: #283845;
+}
+
+@media (min-width: 768px) {
+    .newTask {
+        padding: 0.25em 0.75em;
+    }
+}
+
+@media (hover: hover) {
+    .newTask:hover {
+        transform: scale(1.01);
+    }
+
+    .addProject:hover {
+        cursor: pointer;
+        opacity: .5;
+    }
+
+    .done:hover {
+        cursor: pointer;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+    i.fa-trash:hover{
+        color: #800e13;
+    };
 }
