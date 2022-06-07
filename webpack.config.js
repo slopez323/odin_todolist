@@ -1,3 +1,4 @@
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -19,4 +20,9 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new CnameWebpackPlugin({
+          domain: 'todolist.sarahlopez.me',
+        }),
+      ],
 };
