@@ -22,7 +22,7 @@ module.exports = {
     },
     plugins: [
         new CnameWebpackPlugin({
-          domain: 'todolist.sarahlopez.me',
+          domain: 'todo.sarahlopez.me',
         }),
       ],
 };
