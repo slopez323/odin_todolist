@@ -1,15 +1,15 @@
-import { taskFunctions, projectFunctions } from './common';
-import { projUpdate } from './read';
+import { taskFunctions, projectFunctions } from "./common";
+import { projUpdate } from "./read";
 
 const deleteTask = (element) => {
   const tasks = taskFunctions.getTasks();
-  const id = element.parentNode.getAttribute('data-id');
+  const id = element.parentNode.getAttribute("data-id");
   const currentTask = tasks.findIndex((task) => task.id === Number(id));
 
   tasks.splice(currentTask, 1);
   taskFunctions.setTasks(tasks);
 
-  const latestView = document.querySelector('.current-view').id;
+  const latestView = document.querySelector(".current-view").id;
   document.querySelector(`#${latestView} span`).click();
 };
 
