@@ -244,6 +244,7 @@ main select{
     padding-bottom: .2rem;
     margin: 0 .8rem .8rem 0;
     border-bottom:1px solid #c0c0c0;
+    cursor: pointer;
 }
 
 main ul {
@@ -418,10 +419,15 @@ footer {
         cursor: pointer;
     }
 
-    li:hover {
+    .list-title:hover {
         cursor: pointer;
     }
+
     i.fa-trash:hover{
         color: #800e13;
-    };
+    }
+
+    .detail-actions span:hover{
+        cursor: pointer;
+    }
 }
