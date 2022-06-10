@@ -1,29 +1,31 @@
-import { projUpdate, tasks } from "./read";
-import { projects, storeProjects } from "./projects";
-import { storeTasks } from "./create";
+import { taskFunctions, projectFunctions } from './common';
+import { projUpdate } from './read';
 
 const deleteTask = (element) => {
-    const id = element.parentNode.getAttribute('data-id');
-    const currentTask = tasks.findIndex(task => task.id == id);
-    
-    tasks.splice(currentTask, 1);
-    storeTasks();
+  const tasks = taskFunctions.getTasks();
+  const id = element.parentNode.getAttribute('data-id');
+  const currentTask = tasks.findIndex((task) => task.id === Number(id));
 
-    const latestView = document.querySelector('.current-view').id;
-    document.querySelector(`#${latestView} span`).click();
+  tasks.splice(currentTask, 1);
+  taskFunctions.setTasks(tasks);
+
+  const latestView = document.querySelector('.current-view').id;
+  document.querySelector(`#${latestView} span`).click();
 };
 
 const deleteProject = (element) => {
-    const projName = element.textContent;
-    const index = projects.findIndex(project => project == projName);
+  const tasks = taskFunctions.getTasks();
+  const projects = projectFunctions.getProjects();
+  const projName = element.textContent;
+  const index = projects.findIndex((project) => project === projName);
 
-    projects.splice(index, 1);
-    storeProjects();
+  projects.splice(index, 1);
+  projectFunctions.setProjects(projects);
 
-    tasks = tasks.filter(task => task.projectName != projName);
-    storeTasks();
+  const updatedTasks = tasks.filter((task) => task.projectName !== projName);
+  taskFunctions.setTasks(updatedTasks);
 
-    projUpdate();
+  projUpdate();
 };
 
 export { deleteTask, deleteProject };
